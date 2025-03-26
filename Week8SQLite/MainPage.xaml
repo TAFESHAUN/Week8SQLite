@@ -18,7 +18,21 @@
         </HorizontalStackLayout>
         
         <!--Load in the list of cars? OR load The DB-->
-        
+        <ListView x:Name="CarListView" SelectionMode="Single">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <HorizontalStackLayout Background="CadetBlue">
+                            <Label TextColor="Azure" Text="{Binding Id}" />
+                            <Label TextColor="Azure" Text="{Binding Make}" />
+                            <Label TextColor="Azure" Text="{Binding Model}" />
+                            <!--<TextCell Text="{Binding Make}" Detail="{Binding Model}"/>-->
+                            </HorizontalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </VerticalStackLayout>
 
 </ContentPage>
