@@ -17,6 +17,17 @@ namespace Week8SQLite
         }
 
         //CRUD
-        //DO THESE AFTER WE BUILD UI
+        //Create a new car
+        public async Task CreateCarAysnc(Car car) =>await _database.InsertAsync(car);  //Generate INSERT SQL code for us 
+
+        //Read all cars -> list of cars?
+        public async Task<List<Car>> GetCarsAsync() => await _database.Table<Car>().ToListAsync(); //SELECT * FROM cars
+        // => Lambda expression Auto returns IF i had a code block I would need to return
+
+        //Update an existing Car
+        public async Task UpdateCarAsync(Car car) => await _database.UpdateAsync(car); //UPDATE cars SET make = 'Ford' WHERE id = 1 -> Update
+
+        //Delete a chosen car
+        public async Task DeleteCarAysnc(Car car) => await _database.DeleteAsync(car); //DELETE FROM cars WHERE id = 1
     }
 }

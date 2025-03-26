@@ -10,8 +10,15 @@
         <Entry Placeholder="Year Made" x:Name="YearEntry" Keyboard="Numeric"/>
         <Entry Placeholder="Enter Car VIN" x:Name="VINEntry"/>
         
-        <!--MORE UI FOR THE DB-->
-
+        <!--NEED BUTTONS to do EVENTS that DO TASKS-->
+        <HorizontalStackLayout>
+            <Button Text="Add Car"  Clicked="AddCar_Clicked"/>
+            <Button Text="Update Car Selected" Clicked="UpdateCar_Clicked"/>
+            <Button Text="Delete Car Selected" Clicked="DeleteCar_Clicked"/>
+        </HorizontalStackLayout>
+        
+        <!--Load in the list of cars? OR load The DB-->
+        
     </VerticalStackLayout>
 
 </ContentPage>
