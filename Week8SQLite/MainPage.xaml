@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Week8SQLite.MainPage">
+    <VerticalStackLayout>
+        <Label Text="Car Management App SQLite Demo" FontSize="Title"/>
+        <!--User Input for adding CARS to my DB-->
+        <Entry Placeholder="Car Make" x:Name="MakeEntry"/>
+        <Entry Placeholder="Car Model" x:Name="ModelEntry"/>
+        <Entry Placeholder="Year Made" x:Name="YearEntry" Keyboard="Numeric"/>
+        <Entry Placeholder="Enter Car VIN" x:Name="VINEntry"/>
+        
+        <!--MORE UI FOR THE DB-->
+
+    </VerticalStackLayout>
+
+</ContentPage>
