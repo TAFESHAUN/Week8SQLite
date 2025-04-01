@@ -12,5 +12,9 @@ namespace Week8SQLite
         public string Model { get; set; }
         public int Year { get; set; }
         public string VIN { get; set; }
+
+        //Add owner later, Odometer, Seats etc
+
+        //Methods could Odometer reading, Current Seats, etc
     }
 }

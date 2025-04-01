@@ -28,6 +28,9 @@
             //Update our List
             LoadCarsAsync();
         }
+
+        //ON appearing of the page make it so we clear slection of car list
+
         private async void UpdateCar_Clicked(object sender, EventArgs e)
         {
             if(CarListView.SelectedItem is Car selectedUserCar)
@@ -68,6 +71,16 @@
         {
             await _databaseService.ClearCarsAsync();
             LoadCarsAsync();
+        }
+
+
+        //Async navigation of CAR to CARDETAILS page
+        private async void CarListItem_Selected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (CarListView.SelectedItem is Car selectedUserCar)
+            {
+                await Navigation.PushAsync(new CarDetails(selectedUserCar));
+            }
         }
     }
 

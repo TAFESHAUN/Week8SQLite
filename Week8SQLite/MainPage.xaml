@@ -3,44 +3,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Week8SQLite.MainPage"
              Padding="20">
-    <VerticalStackLayout Spacing="20">
-        <Label Text="Car Management App SQLite Demo" FontSize="24" HorizontalOptions="Center" />
+    <ScrollView>
+        <VerticalStackLayout Spacing="20">
+            <Label Text="Car Management App SQLite Demo" FontSize="24" HorizontalOptions="Center" />
 
-        <!-- User Input for adding CARS to my DB -->
-        <Entry Placeholder="Car Make" x:Name="MakeEntry"  Margin="0,0,0,10"/>
-        <Entry Placeholder="Car Model" x:Name="ModelEntry"  Margin="0,0,0,10"/>
-        <Entry Placeholder="Year Made" x:Name="YearEntry" Keyboard="Numeric"  Margin="0,0,0,10"/>
-        <Entry Placeholder="Enter Car VIN" x:Name="VINEntry" Margin="0,0,0,20"/>
+            <!-- User Input for adding CARS to my DB -->
+            <Entry Placeholder="Car Make" x:Name="MakeEntry"  Margin="0,0,0,10"/>
+            <Entry Placeholder="Car Model" x:Name="ModelEntry"  Margin="0,0,0,10"/>
+            <Entry Placeholder="Year Made" x:Name="YearEntry" Keyboard="Numeric"  Margin="0,0,0,10"/>
+            <Entry Placeholder="Enter Car VIN" x:Name="VINEntry" Margin="0,0,0,20"/>
 
-        <!-- Buttons for CRUD operations -->
-        <HorizontalStackLayout Spacing="20">
-            <Button Text="Add Car" Clicked="AddCar_Clicked" Padding="15" BackgroundColor="CadetBlue" TextColor="White" CornerRadius="8"/>
-            <Button Text="Update Car Selected" Clicked="UpdateCar_Clicked" Padding="15" BackgroundColor="LightSeaGreen" TextColor="White" CornerRadius="8"/>
-            <Button Text="Delete Car Selected" Clicked="DeleteCar_Clicked" Padding="15" BackgroundColor="IndianRed" TextColor="White" CornerRadius="8"/>
-            <Button Text="Clear Car DB" Clicked="ClearDB_Clicked" Padding="15" BackgroundColor="IndianRed" TextColor="White" CornerRadius="8"/>
-        </HorizontalStackLayout>
+            <!-- Buttons for CRUD operations -->
+            <VerticalStackLayout Spacing="20">
+                <Button Text="Add Car" Clicked="AddCar_Clicked" Padding="15" BackgroundColor="CadetBlue" TextColor="White" CornerRadius="8"/>
+                <Button Text="Update Car Selected" Clicked="UpdateCar_Clicked" Padding="15" BackgroundColor="LightSeaGreen" TextColor="White" CornerRadius="8"/>
+                <Button Text="Delete Car Selected" Clicked="DeleteCar_Clicked" Padding="15" BackgroundColor="IndianRed" TextColor="White" CornerRadius="8"/>
+                <Button Text="Clear Car DB" Clicked="ClearDB_Clicked" Padding="15" BackgroundColor="IndianRed" TextColor="White" CornerRadius="8"/>
+            </VerticalStackLayout>
 
-        <!-- ListView to display cars -->
-        <ListView x:Name="CarListView" SelectionMode="Single" Margin="0,20,0,0">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Border Padding="5" Margin="0,5" BackgroundColor="LightGray" >
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="15,05,05,15" />
-                            </Border.StrokeShape>
-                            <HorizontalStackLayout BackgroundColor="LightSkyBlue" Padding="10" Spacing="10">
-                                <Label TextColor="Black" Text="{Binding Id}" VerticalOptions="Center"/>
-                                <Label TextColor="Black" Text="{Binding Make}" VerticalOptions="Center"/>
-                                <Label TextColor="Black" Text="{Binding Model}" VerticalOptions="Center"/>
-                                <Label TextColor="Black" Text="{Binding Year}" VerticalOptions="Center"/>
-                                <Label TextColor="Black" Text="{Binding VIN}" VerticalOptions="Center"/>
-                            </HorizontalStackLayout>
-                        </Border>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            <!-- ListView to display cars -->
+            <ListView x:Name="CarListView" SelectionMode="Single" Margin="0,20,0,0" HasUnevenRows="True" 
+                      ItemSelected="CarListItem_Selected"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Border Padding="5" Margin="0,5" BackgroundColor="LightGray" >
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="15,05,05,15" />
+                                </Border.StrokeShape>
+                                <HorizontalStackLayout BackgroundColor="LightSkyBlue" Padding="10" Spacing="10">
+                                    <Label TextColor="Black" Text="{Binding Id}" VerticalOptions="Center"/>
+                                    <Label TextColor="Black" Text="{Binding Make}" VerticalOptions="Center"/>
+                                    <Label TextColor="Black" Text="{Binding Model}" VerticalOptions="Center"/>
+                                    <Label TextColor="Black" Text="{Binding Year}" VerticalOptions="Center"/>
+                                    <Label TextColor="Black" Text="{Binding VIN}" VerticalOptions="Center"/>
+                                </HorizontalStackLayout>
+                            </Border>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

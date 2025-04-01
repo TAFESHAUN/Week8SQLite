@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Week8SQLite.CarDetails"
+             Title="CarDetails">
+    <VerticalStackLayout>
+        <Label Text="Welcome to the details page for your selected Car"></Label>
+        <!--UI LABEL-->
+        <Label Text="Make"></Label>
+        <!--LABEL with Dynamic Data CAR Obj data passed over-->
+        <Label x:Name="dynMakeLabel"></Label>
+
+        <Label Text="Model"></Label>
+        <!--LABEL with Dynamic Data CAR Obj data passed over-->
+        <Label x:Name="dynModelLabel"></Label>
+
+        <Label Text="Year"></Label>
+        <!--LABEL with Dynamic Data CAR Obj data passed over-->
+        <Label x:Name="dynYearLabel"></Label>
+
+        <Label Text="VIN"></Label>
+        <!--LABEL with Dynamic Data CAR Obj data passed over-->
+        <Label x:Name="dynVINLabel"></Label>
+
+        <Button Text="Back to Main Page" 
+                Clicked="BackButton_Clicked" 
+                Padding="15" BackgroundColor="CadetBlue" 
+                TextColor="White" CornerRadius="8"/>
+
+    </VerticalStackLayout>
+</ContentPage>
