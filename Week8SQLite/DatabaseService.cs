@@ -29,5 +29,12 @@ namespace Week8SQLite
 
         //Delete a chosen car
         public async Task DeleteCarAysnc(Car car) => await _database.DeleteAsync(car); //DELETE FROM cars WHERE id = 1
+
+        //Clear and drop the DB table
+        public async Task ClearCarsAsync()
+        {
+            await _database.DropTableAsync<Car>(); //DROP TABLE cars
+            await _database.CreateTableAsync<Car>(); //Recreate the table
+        }
     }
 }

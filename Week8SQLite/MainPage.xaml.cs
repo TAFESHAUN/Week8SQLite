@@ -62,6 +62,13 @@
         {
             MakeEntry.Text = ModelEntry.Text = YearEntry.Text = VINEntry.Text = string.Empty;
         }
+
+        //Clear the DB
+        private async void ClearDB_Clicked(object sender, EventArgs e)
+        {
+            await _databaseService.ClearCarsAsync();
+            LoadCarsAsync();
+        }
     }
 
 }

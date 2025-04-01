@@ -1,38 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Week8SQLite.MainPage">
-    <VerticalStackLayout>
-        <Label Text="Car Management App SQLite Demo" FontSize="Title"/>
-        <!--User Input for adding CARS to my DB-->
-        <Entry Placeholder="Car Make" x:Name="MakeEntry"/>
-        <Entry Placeholder="Car Model" x:Name="ModelEntry"/>
-        <Entry Placeholder="Year Made" x:Name="YearEntry" Keyboard="Numeric"/>
-        <Entry Placeholder="Enter Car VIN" x:Name="VINEntry"/>
-        
-        <!--NEED BUTTONS to do EVENTS that DO TASKS-->
-        <HorizontalStackLayout>
-            <Button Text="Add Car"  Clicked="AddCar_Clicked"/>
-            <Button Text="Update Car Selected" Clicked="UpdateCar_Clicked"/>
-            <Button Text="Delete Car Selected" Clicked="DeleteCar_Clicked"/>
+             x:Class="Week8SQLite.MainPage"
+             Padding="20">
+    <VerticalStackLayout Spacing="20">
+        <Label Text="Car Management App SQLite Demo" FontSize="24" HorizontalOptions="Center" />
+
+        <!-- User Input for adding CARS to my DB -->
+        <Entry Placeholder="Car Make" x:Name="MakeEntry"  Margin="0,0,0,10"/>
+        <Entry Placeholder="Car Model" x:Name="ModelEntry"  Margin="0,0,0,10"/>
+        <Entry Placeholder="Year Made" x:Name="YearEntry" Keyboard="Numeric"  Margin="0,0,0,10"/>
+        <Entry Placeholder="Enter Car VIN" x:Name="VINEntry" Margin="0,0,0,20"/>
+
+        <!-- Buttons for CRUD operations -->
+        <HorizontalStackLayout Spacing="20">
+            <Button Text="Add Car" Clicked="AddCar_Clicked" Padding="15" BackgroundColor="CadetBlue" TextColor="White" CornerRadius="8"/>
+            <Button Text="Update Car Selected" Clicked="UpdateCar_Clicked" Padding="15" BackgroundColor="LightSeaGreen" TextColor="White" CornerRadius="8"/>
+            <Button Text="Delete Car Selected" Clicked="DeleteCar_Clicked" Padding="15" BackgroundColor="IndianRed" TextColor="White" CornerRadius="8"/>
+            <Button Text="Clear Car DB" Clicked="ClearDB_Clicked" Padding="15" BackgroundColor="IndianRed" TextColor="White" CornerRadius="8"/>
         </HorizontalStackLayout>
-        
-        <!--Load in the list of cars? OR load The DB-->
-        <ListView x:Name="CarListView" SelectionMode="Single">
+
+        <!-- ListView to display cars -->
+        <ListView x:Name="CarListView" SelectionMode="Single" Margin="0,20,0,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <HorizontalStackLayout Background="CadetBlue">
-                            <Label TextColor="Azure" Text="{Binding Id}" />
-                            <Label TextColor="Azure" Text="{Binding Make}" />
-                            <Label TextColor="Azure" Text="{Binding Model}" />
-                            <!--<TextCell Text="{Binding Make}" Detail="{Binding Model}"/>-->
+                        <Border Padding="5" Margin="0,5" BackgroundColor="LightGray" >
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="15,05,05,15" />
+                            </Border.StrokeShape>
+                            <HorizontalStackLayout BackgroundColor="LightSkyBlue" Padding="10" Spacing="10">
+                                <Label TextColor="Black" Text="{Binding Id}" VerticalOptions="Center"/>
+                                <Label TextColor="Black" Text="{Binding Make}" VerticalOptions="Center"/>
+                                <Label TextColor="Black" Text="{Binding Model}" VerticalOptions="Center"/>
+                                <Label TextColor="Black" Text="{Binding Year}" VerticalOptions="Center"/>
+                                <Label TextColor="Black" Text="{Binding VIN}" VerticalOptions="Center"/>
                             </HorizontalStackLayout>
+                        </Border>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
     </VerticalStackLayout>
-
 </ContentPage>
